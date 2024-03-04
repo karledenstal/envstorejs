@@ -6,6 +6,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import Link from "next/link";
 import { getServerAuthSession } from "~/server/auth";
 import { SignIn } from "~/components/SignIn";
+import Image from "next/image";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,7 +15,8 @@ const inter = Inter({
 
 export const metadata = {
   title: "envstore",
-  description: "Store, retrieve and share environment variables in a secure way.",
+  description:
+    "Store, retrieve and share environment variables in a secure way.",
   icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
@@ -31,7 +33,16 @@ export default async function RootLayout({
         <TRPCReactProvider>
           <div className="border-b border-b-zinc-900">
             <div className="mx-auto flex w-full items-center justify-between p-4 text-sm xl:max-w-7xl">
-              <Link href="/" className="text-base font-bold">
+              <Link
+                href="/"
+                className="flex items-center gap-2 text-base font-bold"
+              >
+                <Image
+                  src="/favicon.png"
+                  alt="Logotype"
+                  width="20"
+                  height="20"
+                />
                 envstorejs
               </Link>
               <ul className="flex items-center gap-8">
