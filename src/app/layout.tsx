@@ -25,40 +25,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerAuthSession();
-
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`font-sans ${inter.variable} bg-zinc-950 text-zinc-50`}>
         <TRPCReactProvider>
-          <div className="border-b border-b-zinc-900">
-            <div className="mx-auto flex w-full items-center justify-between p-4 text-sm xl:max-w-7xl">
-              <Link
-                href="/"
-                className="flex items-center gap-2 text-base font-bold"
-              >
-                <Image
-                  src="/favicon.png"
-                  alt="Logotype"
-                  width="20"
-                  height="20"
-                />
-                envstorejs
-              </Link>
-              <ul className="flex items-center gap-8">
-                <li>
-                  <Link href="/">Docs</Link>
-                </li>
-                <li>
-                  {session ? (
-                    <a href="https://app.envstorejs.dev">Dashboard</a>
-                  ) : (
-                    <SignIn />
-                  )}
-                </li>
-              </ul>
-            </div>
-          </div>
           {children}
         </TRPCReactProvider>
       </body>

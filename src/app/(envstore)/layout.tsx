@@ -1,17 +1,8 @@
 import "~/styles/globals.css";
-
-import { Inter } from "next/font/google";
-
-import { TRPCReactProvider } from "~/trpc/react";
 import Link from "next/link";
-import { getServerAuthSession } from "~/server/auth";
-import { SignIn } from "~/components/SignIn";
 import Image from "next/image";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import { ComboBox } from "~/components/Combobox";
+import { ProjectSelect } from "~/components/ProjectSelect";
 
 export const metadata = {
   title: "envstore",
@@ -25,5 +16,23 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <main className="flex h-screen w-screen overflow-hidden">
+      <nav className="w-full max-w-72 border-r border-r-zinc-900">
+        <div className="w-full border-b border-b-zinc-900 p-4">
+          <Link
+            href="/envs"
+            className="flex items-center gap-2 text-base font-bold"
+          >
+            <Image src="/favicon.png" alt="Logotype" width="20" height="20" />
+            envstorejs
+          </Link>
+        </div>
+        <div className="p-4">
+          <ProjectSelect />
+        </div>
+      </nav>
+      <section className="flex-1">{children}</section>
+    </main>
+  );
 }
