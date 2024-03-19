@@ -1,15 +1,7 @@
 import "~/styles/globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import { ComboBox } from "~/components/Combobox";
-import { ProjectSelect } from "~/components/ProjectSelect";
-
-export const metadata = {
-  title: "envstore",
-  description:
-    "Store, retrieve and share environment variables in a secure way.",
-  icons: [{ rel: "icon", url: "/favicon.png" }],
-};
+import { VaultSelect } from "~/components/ProjectSelect"
 
 export default async function RootLayout({
   children,
@@ -25,11 +17,11 @@ export default async function RootLayout({
             className="flex items-center gap-2 text-base font-bold"
           >
             <Image src="/favicon.png" alt="Logotype" width="20" height="20" />
-            envstorejs
+            envirovault.dev
           </Link>
         </div>
         <div className="p-4">
-          <ProjectSelect />
+          <VaultSelect />
         </div>
       </nav>
       <section className="flex-1">{children}</section>

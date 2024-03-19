@@ -3,17 +3,17 @@
 import { useState } from "react";
 import { ComboBox } from "./Combobox";
 
-export const ProjectSelect = () => {
+export const VaultSelect = () => {
   const [value, setValue] = useState("");
 
   return (
     <ComboBox
       searchPlaceholder="Search..."
-      placeholder="Select project"
+      placeholder="Select vault"
       items={[
         {
-          value: "test",
-          label: "Test",
+          value: "all",
+          label: "All vaults",
         },
       ]}
       value={value}

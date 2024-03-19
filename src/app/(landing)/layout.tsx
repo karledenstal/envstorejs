@@ -2,8 +2,10 @@ import Link from "next/link";
 import { getServerAuthSession } from "~/server/auth";
 import Image from "next/image";
 import { SignIn } from "~/components/SignIn";
+import BasicLogo from "~/assets/basic-logo.png"
+import { ReactNode } from "react";
 
-export default async function Layout() {
+export default async function Layout({ children }: { children: ReactNode }) {
   const session = await getServerAuthSession();
 
   return (
@@ -14,8 +16,8 @@ export default async function Layout() {
             href="/"
             className="flex items-center gap-2 text-base font-bold"
           >
-            <Image src="/favicon.png" alt="Logotype" width="20" height="20" />
-            envstorejs
+            <Image src={BasicLogo} alt="Logotype" width="20" height="20" />
+            envirovault.dev
           </Link>
           <ul className="flex items-center gap-8">
             <li>
@@ -25,6 +27,7 @@ export default async function Layout() {
           </ul>
         </div>
       </nav>
+      {children}
     </>
   );
 }
